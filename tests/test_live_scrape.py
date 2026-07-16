@@ -8,8 +8,9 @@ Usage:
 
 from core.scraper import Scraper
 from config import settings
+from .mock_server import run_server
 
-TARGET_URL = settings.BASE_URL
+TARGET_URL = "http://localhost:8765" # settings.BASE_URL 
 
 
 def main():
@@ -29,4 +30,5 @@ def main():
 
 
 if __name__ == "__main__":
+    run_server()
     main()
