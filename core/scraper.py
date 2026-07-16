@@ -99,17 +99,17 @@ class Scraper:
 
 
                 # Server errors (5xx) are often transient — worth a retry.
-                logger.warning(f"Server error {status} fetching {url} (attempt {attempt/self.max_retries})")
+                logger.warning(f"Server error {status} fetching {url} (attempt {str(attempt) + '/' +str(self.max_retries)})")
 
             
             except Timeout as e:
                 logger.warning(
-                    f"Timeout fetching {url} (attempt {attempt/self.max_retries})"
+                    f"Timeout fetching {url} (attempt {str(attempt) + '/' +str(self.max_retries)})"
                 )
 
             except ConnectionError as e:
                 logger.warning(
-                    f"Connection error fetching {url} (attempt {attempt/self.max_retries})"
+                    f"Connection error fetching {url} (attempt {str(attempt) + '/' +str(self.max_retries)})"
                 )
 
             except TooManyRedirects as e:
@@ -124,7 +124,7 @@ class Scraper:
                 # didn't anticipate. Log it with detail rather than
                 # crashing the whole batch/thread.
                 logger.warning(
-                    f"Unexpected request error fetching {url} (attempt {attempt/self.max_retries})"
+                    f"Unexpected request error fetching {url} (attempt {str(attempt) + '/' +str(self.max_retries)})"
                 )
 
             # Only reached after a retryable failure above.
