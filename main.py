@@ -7,7 +7,7 @@ scrap_obj = Scraper()
 
 # raw_html = scrap_obj.fetch_url("https://www.homehardware.ca/en/search?query=coffee+table")
 
-raw_html = scrap_obj.fetch_url("https://www.newegg.ca/p/pl?d=nvme+ssd+gen5")
+raw_html = scrap_obj.fetch_page("https://www.newegg.ca/Cell-Phones/Category/ID-450")
 
 with open("raw.json", "w") as f:
     json.dump(raw_html, f)
